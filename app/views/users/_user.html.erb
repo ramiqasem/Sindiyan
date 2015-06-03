@@ -1,0 +1,17 @@
+<!-- <li>  -->
+
+<div class="col-md-4">
+	<div class="col-md-3">
+	<%= cl_image_tag user.avatar_url( :thumbnail)%>
+	</div>
+	<div class="col-md-4">
+    <%= link_to user.name, user %>
+    </div>
+    <% if !current_user?(user) %>
+    
+    | <%= link_to "delete", user, method: :delete, data: {confirm: "Are you sure?"}, :style=>"color:#000;" %>
+    
+    <% end %>
+
+</li>
+</div>

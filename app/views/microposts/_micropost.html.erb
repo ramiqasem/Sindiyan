@@ -1,0 +1,75 @@
+  <div class="panel-body post">
+    <div class="chat-element" id='<%=micropost.id%>'>
+      <a href="#" class="pull-left">
+        <%= cl_image_tag micropost.user.avatar_url( :micro) , class: 'post-img pull-left' %>
+      </a>
+      <div class="media-body ">
+        <small class="pull-right">Posted <%= (micropost.created_at > 1.days.ago)? time_ago_in_words(micropost.created_at)+ " ago" : micropost.created_at.strftime("%B %e, %Y at %I:%M %p") %> </small>
+        <strong><%= link_to micropost.user.name, micropost.user %> </strong> Posted at 
+        <strong>
+          <%micropost.group.each do |group| %>
+          <%= group.name %>
+          <%end%></strong>
+        </br>
+        <div class="well post-well">
+          <% if micropost.content_html %>
+          <%= micropost.content_html %>
+          <% else %>
+          <%= micropost.content %>
+          <% end %>
+          <% if micropost.picture_url %>
+          <%= cl_image_tag micropost.picture_url( :post_image)%>
+          <%end%>
+          <% if micropost.attachment.any? %>
+          <% micropost.attachment.each do |attachment| %>
+          <% link = attachment.attachment.to_s %>
+          <% type = File.extname(link) %>
+          <% image_types = ['.jpg','.png','.bmp'] %>
+          <% if image_types.include?(type) %>
+          <div class="img">
+          <%= link_to(image_tag(link, :width => "200px"), link) %>
+          `</div>
+          <% else %>
+          <%= image_tag Icon.for_filename(attachment.name.to_s) %>
+          <%= attachment.name %>
+          <a href= "<%=  attachment.attachment %>" >Download File </a>  
+          <% end %>      
+          <% end %> 
+          <% end %>
+                                  
+        </div>
+        <div class="pull-right">
+        <% if current_user?(micropost.user) %>
+        <%= link_to "Delete Post", micropost, method: :delete,
+        data: { confirm: "You sure?" } %>
+        <% end %>
+      </div>
+      </div>     
+    
+  
+  
+  <div class="comments">
+    <ul class="comments-body">
+      <% comments=micropost.comments.recent.limit(10).all.reverse_order %>
+      <% comments.each do |comment| %>
+      <%= render  'shared/comment', comment: comment %>
+      <% end %>   
+    </ul>
+    <div class="add-comment">
+      
+        <div class="input-group">
+          <%= form_tag "/microposts/add_new_comment", remote: true do %>
+          <%= hidden_field_tag "id", micropost.id %>
+          <%= text_area_tag 'comment', nil, class: "form-control reply-area input-sm", placeholder: "add comment", maxlength: "600" %>
+          <span class="input-group-btn">
+            <%= submit_tag "Post Comment", class: "btn btn-default btn-info btn-sm reply-btn" %>
+          </span>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+ 

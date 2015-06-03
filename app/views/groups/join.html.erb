@@ -1,0 +1,15 @@
+<h1>Groups#join</h1>
+<p>Find me in app/views/groups/destroy.html.erb</p>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@group) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :passcode %>
+      <%= f.text_field :passcode, class: 'form-control' %>
+
+      <%= f.submit "Join Group", class: "btn btn-primary btn-block" %>
+
+     <% end %>
+  </div>

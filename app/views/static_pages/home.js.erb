@@ -1,0 +1,28 @@
+$('div[id="tabs"] .tab-pane.active .panel .row').each(function(){
+
+
+
+//$(this).append('<%= escape_javascript(render @feed)%>').hide().fadeIn(2000);
+
+$('<%= escape_javascript(render @feed)%>').hide().appendTo('div[id="tabs"] .tab-pane.active .panel .row').fadeIn('slow').delay(1000).effect( "highlight", {color:"#CACACA"}, 400 );
+
+var y = $(window).scrollTop();  //your current y position on the page
+$(window).scrollTop(y+300);
+
+var x = $(this).parent().find("a[rel='next']").attr('href');
+
+
+number_one = x.match(/page=([0-9]+)/)[1] ;
+
+number_two= parseInt(number_one) + 1
+
+
+var max = <%= @feed.total_pages %>
+
+
+if (max >= number_two) {
+
+$(this).parent().find("a[rel='next']").attr('href', '/?page=' + number_two);
+}
+
+});

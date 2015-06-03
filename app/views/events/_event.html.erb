@@ -1,0 +1,45 @@
+<div class="panel-body post">
+    <div class="chat-element" id='<%=event.id%>'>
+      <a href="#" class="pull-left">
+        <%= cl_image_tag event.user.avatar_url( :micro) , class: 'post-img pull-left' %>
+      </a>
+      <div class="media-body ">
+        <small class="pull-right">Posted <%= (event.created_at > 1.days.ago)? time_ago_in_words(event.created_at)+ " ago" : event.created_at.strftime("%B %e, %Y at %I:%M %p") %> </small>
+        <strong><%= link_to event.user.name, event.user %> </strong> Posted a New Event at 
+        <strong>
+          <%event.group.each do |group| %>
+          <%= group.name %>
+          <%end%></strong>
+        </br>
+        <div class="well post-well">
+         
+          <i class="fa fa-calendar-o fa-lg"></i>
+          <% if event.start_time > DateTime.now.to_date %>
+
+            <%= event.title %>
+            <br>
+
+            <%= event.start_time.strftime("%d %b, %Y") %>
+            <br>
+            <strong>After <%= time_ago_in_words(event.start_time) %></strong>
+
+            <% end %>
+         
+          
+                                  
+        </div>
+        <div class="pull-right">
+        <% if current_user?(event.user) %>
+        <%= link_to "Delete Event", event, method: :delete,
+        data: { confirm: "You sure?" } %>
+        <% end %>
+      </div>
+      </div>     
+    
+  
+  
+  
+    </div>
+  </div>
+
+ 

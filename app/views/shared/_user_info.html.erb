@@ -1,0 +1,19 @@
+
+	<div class="dropdown profile-element"> 
+		<span>
+			<%= cl_image_tag current_user.avatar_url( :thumbnail)%>
+		</span>
+	<a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="true">
+		<span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><%= current_user.name %></strong> <span class="fa arrow"></span>
+		</span>  </span> 
+	</a>
+		<ul class="dropdown-menu animated fadeInRight m-t-xs">
+			<li><%= link_to "profile", current_user %></li>
+			
+			<li><%= link_to "logout", logout_path, method: "delete" %></li>
+		</ul>
+	</div>
+
+
+
+	

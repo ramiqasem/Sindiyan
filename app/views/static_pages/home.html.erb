@@ -1,0 +1,295 @@
+
+
+
+<% if logged_in? %>
+<!DOCTYPE html>
+
+
+<!-- /.navbar -->
+<!-- Begin Body -->
+<div class="container" id="main">
+  <div class="row">
+
+
+    <!--/end left column-->
+    <!--mid column-->
+    <div class="col-md-6 col-md-push-3 col-sm-6">
+      <div class="panel panel-default" id="post-form">
+
+        
+
+
+
+
+
+
+
+        <!-- el form el 3atheeem -->
+
+
+
+
+
+
+
+
+
+
+
+        <div class="panel-body">
+          <%= render 'shared/form' %>
+        </div>
+      </div>
+
+
+
+                  <!-- end of form -->
+
+
+
+      <!--   Posts   -->
+
+
+
+
+      <div class="panel">
+        <div class="panel-heading">
+          <h4 draggable="true">Microposts</h4>
+
+
+
+        </div>
+
+        <div class="panel-body">
+         <div class="tab-content" id="tabs">
+          <% @groups.each_with_index do |group, index| %>
+
+          <div class="tab-pane fade <%= 'in active' if current_user.group.first == group %>" id="<%=(group.id.to_s)%>">
+
+
+            <% @microposts= group.micropost.paginate(page: params[:page], per_page: 5) %>
+
+            <div class="panel panel-default">
+              <div class="row">
+                <%= render @microposts %>
+              </div>
+
+              <div id="scroll">
+
+               <%= will_paginate @microposts %> 
+               <button id="show_more" type="button" class="btn btn-default">show more</button>
+
+             </div>
+           </div>
+
+         </div>
+         <%end %>
+         <div class="tab-pane fade" id="feed">
+          <div class="panel panel-default">
+              <div class="row">
+
+          
+          <%= render @feed %>
+          </div>
+          <div id="scroll">
+
+               <%= will_paginate @feed %> 
+
+             
+              <button id="show_more" type="button" class="btn btn-default">show more</button>
+             </div>
+         </div>
+       
+
+   </div>
+ 
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+              <!-- end of posts -->
+
+
+
+
+<!-- Group Tabs -->
+
+ <div class="col-md-3 col-md-pull-6 col-sm-6">
+  <div class="panel" id="left-panel">
+    <div class="panel-heading">My Groups</div>                         
+    
+      <ul class="nav nav-stacked" id="group_tabs">
+        <% current_user.group.each do |group| %>
+
+
+
+        <li class="<%= "active" if current_user.group.first == group %>" id=  <%=group.id %>><a href="#<%=group.id.to_s%>"  data-toggle="tab" data-target="#<%=group.id.to_s%> , #<%=(group.id.to_s) + "2"%>" >
+          
+          &nbsp; <%= group.name %>
+          
+          <% if current_user.membership.find_by(group_id: group.id).new_count > 0 %> 
+          <span class=badge id=badge<%=group.id%>><%= current_user.membership.find_by(group_id: group.id).new_count %>
+          </span>
+          <% end %>
+          
+          </a>
+          </li>
+
+          <% end %>
+
+          <li><a href="#feed"  data-toggle="tab" data-target="#feed" >
+            &nbsp; All
+          </a>
+          </li>
+          
+          
+          
+
+          <button type="button" class="btn btn-default btn-info btn-block special_link" data-toggle="modal" data-target="#myModal">
+                                <span class="fa fa-plus"></span> Add your class
+                            </button>
+
+        </ul>
+       
+        <!--/acc-->
+       
+        
+      </div>
+      
+    
+    <!--/panel-->
+  </div>
+
+  <!-- End of Group Tabs -->
+
+
+
+    <!-- Group info -->
+
+  
+  <div class="col-md-3 col-sm-6 hidden-xs" id="content">
+    
+ 
+ 
+ 
+ 
+        <div class="tab-content">
+ 
+          <% @groups.each do |group| %>  
+ 
+          <div class="tab-pane fade <%= 'in active' if current_user.group.first == group %>" id="<%=(group.id.to_s)%>">
+           
+              <% if @owned_groups.include? group %>
+              <%= render 'shared/group_info', :group=> group %>
+
+              <%end%>
+           
+          </div>                                                        
+          <% end %>
+        </div>
+      
+
+</div>
+</div>
+    
+
+
+
+
+
+
+
+      <!-- End of Group info -->
+
+
+
+
+         <!-- Model - Create a Group -->
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+              &times;
+            </span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+            Add Group
+          </h4>
+        </div>
+        <div class="modal-body">
+          <% if @group %>
+          <%= render 'shared/group_form' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+         <!-- End of Modal -->
+
+
+
+    <!-- End of Group info -->
+
+
+
+
+
+  
+  <!-- script references -->
+
+
+
+  <script>
+  $("#form_tabs").tabs({
+
+
+
+    activate: function(event, ui){
+      $('.chosen-select', this).chosen('destroy').chosen()
+
+      return false;
+    }
+
+
+
+  });
+
+  $("#group_tabs li").click(function(e)
+  {
+    var group = $(this).attr('id')
+    $.ajax("/reset_group?group_id=" + group)
+  });
+
+
+
+  
+
+  </script>
+
+
+  <% else %>
+  <div class="center jumbotron">
+    <h1>Welcome to the Sample App</h1>
+    <h2>
+      This is the home page for the
+      <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+      sample application.
+    </h2>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+  <%= link_to image_tag("Sindiyan2.png", alt: "Rails logo"),
+  'http://rubyonrails.org/'  %>
+
+  <% end %>

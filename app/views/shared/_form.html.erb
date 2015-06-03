@@ -1,0 +1,79 @@
+ <div id="form_tabs">
+        <ul class="nav nav-tabs">
+            <li class="active" data-toggle="tooltip" title="mashi a Message!"><a data-toggle="tab" href="#tab-4"><i class="fa fa-envelope fa-lg"></i>Message</a></li>
+            
+            <li class="" data-toggle="tooltip" title="Share Event!"><a data-toggle="tab" href="#tab-6"><i class="fa fa-calendar-o fa-lg"></i>Events</a></li>
+        </ul>
+       
+
+        
+        <div class="tab-content" id="form_content" style="background-color: #fff;">
+            
+            
+            <div id="tab-4" class="tab-pane active">
+                
+                <%= form_for @micropost, remote: true, :html => { :multipart => true } do |f| %>
+                <%= render 'shared/error_messages', object: f.object %>
+                <div class="field" >
+                    <%= f.text_field :content, :id=> "post_area", placeholder: "Share a message...", class: "form-control input-md m-b", style: "display: inline-block"%>
+                    <a class="btn" id="attach" onclick="$('#fileupload').click();"><i class="fa fa-paperclip fa-lg"></i></a>
+                </div>
+                
+                <div class="form_controls">
+                    <%= f.fields_for :attachment do |ff| %>
+
+                    <%= ff.file_field :attachment, id: "fileupload", :multiple => true, name: "attachment[attachment][]", :use_filename => true, :unique_filename => false %> <br>
+                    <%end%>
+                </div>
+
+
+               
+                <div id="files-selected"></div>
+                <%= render 'shared/group_select' %>
+                <!-- Multiselect form -->
+                <%= f.submit "Post", class: "btn btn-primary", id: "post" %>
+                <% end %>
+
+
+
+                
+<div id="status"></div>
+            </div>
+            
+            <div id="tab-6" class="tab-pane">
+                <%= render 'events/form' %>
+            </div>
+        
+    </div>
+    </div> 
+
+
+
+
+<script>
+
+$("#form_tabs").tabs({
+    
+     
+         
+    activate: function(event, ui){
+        $('.chosen-select', this).chosen('destroy').chosen();
+       
+        return false;
+    }
+
+
+
+});
+
+$("#form_content").bind("ajax:complete", function(event,xhr,status){
+  $("#post_area").val('');
+});
+
+$(document).on("change",":file",function() {
+        $('#photoCover').val($(this).text());
+        $('#files-selected').text(this.files.length + " file selected");
+
+    });
+
+</script>

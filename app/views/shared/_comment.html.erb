@@ -1,0 +1,8 @@
+<li id="comment" class="comment clearfix">
+	<div class="media-body comment-structure"> 
+		<%= cl_image_tag comment.user.avatar_url( :comment), class: 'comment-img pull-left' %>                                         
+		<p class="comment-content"><p class="comment-header"><strong><%= link_to comment.user.name, comment.user %></strong><br></p><div class="well well-sm">
+		<p><%= comment.comment %> </p>
+	</div>
+</div>
+</li>

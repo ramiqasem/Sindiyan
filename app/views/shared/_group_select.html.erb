@@ -1,0 +1,36 @@
+  <div class="form-group">
+    
+    <div class="input-group">
+      <select name="group_ids[]" data-placeholder="Share with..." style="width:350px;" class="chosen-select" multiple tabindex="4">
+        
+        <% if @owned_groups %>
+        <% @owned_groups.each do |group| %>
+        <option value=<%=group.id%>><%=group.name%></option>              
+        <%end%>
+        <%end%>
+      </select>
+     
+      
+    </div>
+  </div>
+
+  <% content_for :javascript do %>
+
+  <script type="text/javascript">
+  $(function() {
+    var config = {
+      '.chosen-select': {},
+      '.chosen-select-deselect': { allow_single_deselect: true },
+      '.chosen-select-no-single': { disable_search_threshold: 10 },
+      '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+      '.chosen-select-width': { width: "300px" }
+    }
+    for (var selector in config) {
+      $(selector).chosen(config[selector]);
+      
+    }
+  });
+  </script>
+ <% end %>
+
+

@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dss803adu
+  api_key: '316874374824244'
+  api_secret: EglNDKiPHXIO-PeWftLMBuCB0-w
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dss803adu
+  api_key: '316874374824244'
+  api_secret: EglNDKiPHXIO-PeWftLMBuCB0-w
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dss803adu
+  api_key: '316874374824244'
+  api_secret: EglNDKiPHXIO-PeWftLMBuCB0-w
+  enhance_image_tag: true
+  static_image_support: false

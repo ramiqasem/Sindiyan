@@ -1,0 +1,88 @@
+<div class="panel">
+  <div class="panel-heading"><%= group.name %>
+
+    <div class="tools pull-right">
+      <div class="dropdown">
+        <a id="dLabel" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="glyphicon glyphicon-cog"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+
+         <li><%= link_to "Edit", edit_group_path(group) %></li>
+         <li><%= link_to "Delete Group", group, method: :delete,
+        data: { confirm: "You sure?" } %></li>
+
+       </ul>
+     </div>
+
+   </div>
+
+ </div>                        
+ <div class="panel-body" id="class-info">
+
+
+  <table class="table">
+    <tbody>
+      <tr>
+        <td><b>Code</b></td>
+        <td><%= group.passcode %></td>
+      </tr>
+      <tr>
+        <td><b>Class</b></td>
+        <td><%= group.name %></td>
+      </tr>
+      <tr>
+        <td><b>Grade</b></th>
+          <td>KG2</td>
+        </tr>
+        <tr>
+          <td><b>Description</b></td>
+          <td><%= group.description %></td>
+        </tr>
+        <tr>
+          
+          <td><b>Group events</b></td>
+          <td><% group.event.each do |event| %>
+            <% if event.start_time > DateTime.now.to_date %>
+
+            <%= event.title %>
+            <br>
+
+            <%= event.start_time.strftime("%d %b, %Y") %>
+
+            <% end %>
+            <% end %></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div> 
+    </div>              
+
+
+    <div class="panel">
+      <div class="panel-body">  
+
+        Subscribers
+        <% count = group.capacity %>
+        <% if count = 1 %>
+        <% count_text = 'Only You' %>
+        <% else %>
+        <% count_text = group.capacity.to_s %>
+        <% end %>
+        <div class="pull-right"><a href="#" title="see all subscribers"><span class="glyphicon glyphicon-user" style="display: inline-block;">&nbsp;<%= group.capacity.to_s%></a></span></div>
+        <hr>
+
+
+        <p style="text-align: center;">    
+          <a href="#"><span class="glyphicon glyphicon-user" style="font-size: 12px;"></span>&nbsp; Invite people!</a>
+        </p>
+      </div>
+
+    </div>
+
+   
+      
+
+    
+  

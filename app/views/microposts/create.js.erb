@@ -1,0 +1,10 @@
+$("#post_area").empty();
+<% @micropost.group.each do |group| %>
+<% tab = (group.id.to_s) %>
+
+$('#<%=tab%>').prepend('<%= escape_javascript(render @micropost)%>').fadeIn(500).effect( "highlight", {color:"#42AD9D"}, 1000 );;
+//alert ('<%=tab%>');
+$('#files-selected').text("");
+<%end%>
+
+

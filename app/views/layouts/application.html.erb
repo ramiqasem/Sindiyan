@@ -1,0 +1,78 @@
+
+
+<!DOCTYPE html>
+
+
+<!-- Main javascript files -->
+    <%= stylesheet_link_tag 'application', media: 'all',
+                                           'data-turbolinks-track' => true %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+    <%= csrf_meta_tags %>
+
+    <%= favicon_link_tag 'Sindiyan2.png' %>
+   <title><%= full_title(yield(:title)) %></title>
+   
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSPINIA</title>
+
+</head>
+<body>
+
+
+
+    <!-- Wrapper-->
+   
+
+        <!-- Navigation -->
+        
+
+        <!-- Page wraper -->
+        
+
+            <!-- Page wrapper -->
+            <%= render 'layouts/topnavbar' %>
+
+            
+         
+
+          <div  id="flash_hook">
+          </div>
+           
+           <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>" id="success-alert"><%= message %></div>
+      <% end %>
+
+     
+                
+            
+            <!-- Main view  -->
+            <%= yield %>
+
+        
+      
+    
+
+     <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+
+        
+        <!-- End page wrapper-->
+
+    
+    <!-- End wrapper-->
+
+
+
+ 
+
+    <%= yield :javascript %>
+
+</body>
+     
+
+</html>

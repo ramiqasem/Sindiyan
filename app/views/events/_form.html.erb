@@ -1,0 +1,143 @@
+    <%= form_for @event, remote: true do |f| %>
+    <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <div class="row">
+      <div class="field">
+        <div class="col-sm-2">
+          <%= f.label :title %>
+        </div>
+        <div class="col-sm-10">
+          <%= f.text_field :title, class: "form-control m-b" %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="field">
+        <div class="col-sm-2">
+          <%= f.label :descreption %>
+        </div>
+        <div class="col-sm-10">
+          <%= f.text_area :descreption, class: "form-control m-b" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group" id="date">
+       <div class="col-sm-2">
+        <%= f.label :Date %>
+      </div>
+      <div class="col-sm-4">
+        <div class="input-group date">
+          <span class="input-group-addon"><i class="fa fa-calendar"></i></span><%= f.text_field :start_time, class: "form-control m-b" %>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <button type="button" class="btn btn-default btn-xs" id="multiday">Multiday</button>
+      </div>
+      <div class="col-sm-4">
+        sm4
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    
+    <div class="form-group" id="date2">
+     
+      <div class="input-group date" id="end_date" style= "display:none">
+        <div class="col-sm-2">
+          <%= f.label :End_Date %>
+        </div>
+        <div class="col-sm-4">
+          <div class="input-group date">
+            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><%= f.text_field :end_time, class: "form-control m-b" %>
+          </div>
+        </div>
+      </div>
+   </div>
+  
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-10">
+         
+        
+    <%= render 'shared/group_select' %>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-10">
+
+      <%= f.submit "Post", class: "btn btn-primary" %>
+    </div>
+  </div>
+  <% end %>
+
+ 
+  </div>
+  <% content_for :javascript do %>
+
+  <script type="text/javascript">
+
+
+  $(function() {
+
+
+
+    $('.i-checks').iCheck({
+      checkboxClass: 'icheckbox_square-green',
+      radioClass: 'iradio_square-green',
+    });
+
+
+
+    $('#date .input-group.date').datepicker({
+      format: 'dd/mm/yyyy (D)',
+      todayBtn: "linked",
+      keyboardNavigation: false,
+      forceParse: false,
+      calendarWeeks: true,
+      autoclose: true
+    });
+
+    $('#date2 .input-group.date').datepicker({
+      format: 'dd/mm/yyyy (D)',
+      todayBtn: "linked",
+      keyboardNavigation: false,
+      forceParse: false,
+      calendarWeeks: true,
+      autoclose: true
+    });
+
+    $(function() {
+      $("#multiday").click( function()
+      {
+       $("#end_date").toggle("slow");
+     }
+     );
+    });
+
+
+
+  });
+
+
+
+  </script>
+
+  <% end %>
