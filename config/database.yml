@@ -39,7 +39,7 @@ test:
   #socket: /var/run/mysqld/mysqld.sock
 
 production:
-   <<: *default
+  <<: *default
   database: sindiyan 
   user_name: RamiDT
   password: rami
