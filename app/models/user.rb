@@ -73,7 +73,7 @@ class User < ActiveRecord::Base
     end
 
     def owned_groups
-      group_ids = "SELECT group_id FROM memberships WHERE user_id = :user_id && owner=true"
+      group_ids = "SELECT group_id FROM memberships WHERE user_id = :user_id and owner=true"
       Group.where("id IN (#{group_ids})", user_id: id)
     end
 

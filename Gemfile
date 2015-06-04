@@ -21,6 +21,8 @@ gem 'fullcalendar-rails'
 
 gem 'mysql2'
 
+gem 'pg'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
@@ -87,6 +89,10 @@ gem 'chronic'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+group :production do
+	gem 'rails_12factor'
+end 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
