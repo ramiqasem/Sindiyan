@@ -37,7 +37,7 @@ gem 'rails-file-icons'
 
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 
 gem 'acts_as_commentable'
 
