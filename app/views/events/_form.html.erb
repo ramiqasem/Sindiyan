@@ -11,85 +11,64 @@
     </div>
     <% end %>
 
+      
+        
+     <div id="event-content">     
+        
+            <div class="row">
+
+                <%= f.text_field :title, placeholder: "Event title", class: "form-control input-sm m-b", style: "min-height: 35px;" %>
+        
+</div>
+         <br>
+  
     <div class="row">
-      <div class="field">
-        <div class="col-sm-2">
-          <%= f.label :title %>
-        </div>
-        <div class="col-sm-10">
-          <%= f.text_field :title, class: "form-control m-b" %>
-        </div>
-      </div>
+      
+        
+                
+        
+        <%= f.text_field :descreption, placeholder: "Event descreption (optional).....", class: "form-control input-sm m-b", style: "min-height: 35px;" %>
+        
+      
     </div>
-    
-    <div class="row">
-      <div class="field">
-        <div class="col-sm-2">
-          <%= f.label :descreption %>
-        </div>
-        <div class="col-sm-10">
-          <%= f.text_area :descreption, class: "form-control m-b" %>
-        </div>
-      </div>
-    </div>
+         <br>
 
     <div class="row">
       <div class="form-group" id="date">
-       <div class="col-sm-2">
-        <%= f.label :Date %>
-      </div>
-      <div class="col-sm-4">
+      
+        
+     
+     
         <div class="input-group date">
-          <span class="input-group-addon"><i class="fa fa-calendar"></i></span><%= f.text_field :start_time, class: "form-control m-b" %>
-        </div>
+          <span class="input-group-addon" style="padding-top:10px;"><i class="fa fa-calendar"></i>&nbsp;Date</span><%= f.text_field :start_time, class: "form-control input-sm m-b", style: "min-height: 35px;" %>
+       
       </div>
-      <div class="col-sm-2">
-        <button type="button" class="btn btn-default btn-xs" id="multiday">Multiday</button>
-      </div>
-      <div class="col-sm-4">
-        sm4
-      </div>
+     
+       
+      
+     
     </div>
   </div>
 
-  <div class="row">
-
-    
-    <div class="form-group" id="date2">
-     
-      <div class="input-group date" id="end_date" style= "display:none">
-        <div class="col-sm-2">
-          <%= f.label :End_Date %>
-        </div>
-        <div class="col-sm-4">
-          <div class="input-group date">
-            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><%= f.text_field :end_time, class: "form-control m-b" %>
-          </div>
-        </div>
-      </div>
-   </div>
+  
   
   <div class="row">
-    <div class="col-sm-2">
-    </div>
-    <div class="col-sm-10">
+    
+    
          
         
     <%= render 'shared/group_select' %>
-  </div>
+  
   </div>
   <div class="row">
-    <div class="col-sm-2">
-    </div>
-    <div class="col-sm-10">
-
+   
       <%= f.submit "Post", class: "btn btn-primary" %>
     </div>
   </div>
   <% end %>
 
  
-  </div>
+  
   <% content_for :javascript do %>
 
   <script type="text/javascript">

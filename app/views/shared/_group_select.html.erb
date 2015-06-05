@@ -1,7 +1,7 @@
   <div class="form-group">
     
-    <div class="input-group">
-      <select name="group_ids[]" data-placeholder="Share with..." style="width:350px;" class="chosen-select" multiple tabindex="4">
+    <div class="input-group" id="chosen-div">
+      <select name="group_ids[]" data-placeholder="Share with..." class="chosen-select" multiple tabindex="4">
         
         <% if @owned_groups %>
         <% @owned_groups.each do |group| %>
@@ -23,7 +23,7 @@
       '.chosen-select-deselect': { allow_single_deselect: true },
       '.chosen-select-no-single': { disable_search_threshold: 10 },
       '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
-      '.chosen-select-width': { width: "300px" }
+      '.chosen-select-width': { width: "100%" }
     }
     for (var selector in config) {
       $(selector).chosen(config[selector]);
