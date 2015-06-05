@@ -25,64 +25,71 @@
     <tbody>
       <tr>
         <td><b>Code</b></td>
-        <td><%= group.passcode %></td>
+        <td><div class="pull-right"><%= group.passcode %></div></td>
       </tr>
       <tr>
         <td><b>Class</b></td>
-        <td><%= group.name %></td>
+        <td><div class="pull-right"><%= group.name %></div></td>
       </tr>
       <tr>
         <td><b>Grade</b></th>
-          <td>KG2</td>
+          <td><div class="pull-right">KG2</div></td>
         </tr>
         <tr>
-          <td><b>Description</b></td>
-          <td><%= group.description %></td>
-        </tr>
-        <tr>
-          
-          <td><b>Group events</b></td>
-          <td><% group.event.each do |event| %>
-            <% if event.start_time > DateTime.now.to_date %>
-
-            <%= event.title %>
-            <br>
-
-            <%= event.start_time.strftime("%d %b, %Y") %>
-
+          <td><b>Subscribers</b></td>
+          <td> 
+            <% count = group.capacity %>
+            <% if count = 1 %>
+            <% count_text = 'Only You' %>
+            <% else %>
+            <% count_text = group.capacity.to_s %>
             <% end %>
-            <% end %></td>
-          </tr>
+            <div class="pull-right"><a href="#" title="see all subscribers"><span class="glyphicon glyphicon-user" style="display: inline-block;">&nbsp;<%= group.capacity.to_s%></a></span></div>
+          </td>
+        </tr>
+        
         </tbody>
       </table>
-
+      <hr>
+<p style="text-align: center;">    
+          <a href="#"><span class="glyphicon glyphicon-user" style="font-size: 12px;"></span>&nbsp; Invite people!</a>
+        </p>
     </div> 
     </div>              
 
 
     <div class="panel">
+
       <div class="panel-body">  
 
-        Subscribers
-        <% count = group.capacity %>
-        <% if count = 1 %>
-        <% count_text = 'Only You' %>
-        <% else %>
-        <% count_text = group.capacity.to_s %>
-        <% end %>
-        <div class="pull-right"><a href="#" title="see all subscribers"><span class="glyphicon glyphicon-user" style="display: inline-block;">&nbsp;<%= group.capacity.to_s%></a></span></div>
+        <a href="http://localhost:3000/events" title="view all events" style="font-size: 14px;"><span class="glyphicon glyphicon-calendar" style="font-size: 12px;"></span>&nbsp; Group events </a>
+
         <hr>
+    <table class="table" style="font-size: 12px;" id="events-table">
+    <tbody>
+        <% group.event.each do |event| %>
+        <% if event.start_time > DateTime.now.to_date %>
+      <tr>
+          
+        <td>
+            
+            
+          <%= event.title %>
+          </td>
+        <td>
+          <%= event.start_time.strftime("%d %b, %Y") %>
 
+            
+            
+          </td>
+      </tr>
+        <% end %>
+        <% end %>
+      </tbody>
+      </table>
 
-        <p style="text-align: center;">    
-          <a href="#"><span class="glyphicon glyphicon-user" style="font-size: 12px;"></span>&nbsp; Invite people!</a>
-        </p>
       </div>
 
     </div>
 
    
-      
-
-    
-  
