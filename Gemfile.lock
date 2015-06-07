@@ -162,8 +162,6 @@ GEM
       json (~> 1.4)
     redcarpet (3.2.3)
     remotipart (1.2.1)
-    respond-rails (1.0.1)
-      railties (>= 3.1.0)
     rest-client (1.8.0-x86-mingw32)
       ffi (~> 1.9)
       http-cookie (>= 1.0.2, < 2.0)
@@ -242,7 +240,6 @@ DEPENDENCIES
   rails_12factor
   rb-readline
   remotipart
-  respond-rails (~> 1.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   therubyracer

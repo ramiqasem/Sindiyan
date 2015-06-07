@@ -35,7 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # displaying file-icon for attachements and downloads
 gem 'rails-file-icons'
 
-gem "respond-rails", "~> 1.0"
+
 
 
 # Use sqlite3 as the database for Active Record
