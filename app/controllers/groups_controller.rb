@@ -1,7 +1,9 @@
 class GroupsController < ApplicationController
   def create
     @group = current_user.group.build(group_params)
-    @group.passcode=  6.times.map { [*'0'..'9', *'a'..'z', *'A'..'Z'].sample }.join
+    
+    @group.generate_passcode
+    
     @group.capacity = 1
     #grouping = (params[:group_ids])
     if @group.save
@@ -24,24 +26,6 @@ class GroupsController < ApplicationController
     
   end
 
-  def join
-    group = Group.find_by(passcode: params[:passcode])
-    if group
-      if !current_user.group.include?(group)
-      current_user.group<<group
-      group.capacity +=1
-      group.save
-      flash[:success] = "You have joined #{group.name}"
-      
-      else
-      flash[:danger] = "You are already following this group"
-      end
-    else
-      flash[:danger] = "Incorrect Group Code"
-    end
-    redirect_to root_path
-    
-  end
 
   def edit
     @group=Group.find(params[:id])

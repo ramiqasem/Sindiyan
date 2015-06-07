@@ -29,7 +29,11 @@ jQuery.ajaxSetup({
     $('[data-toggle="tooltip"]').tooltip(); 
 })
 
-
+$('#post_area').keyup(function(e) {
+    while($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
+        $(this).height($(this).height()+1);
+    };
+});
 
 function resizeChosen() {
    $(".chosen-container").each(function() {

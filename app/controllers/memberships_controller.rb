@@ -4,7 +4,8 @@ class MembershipsController < ApplicationController
   end
 
   def create
-  	group = Group.find_by(passcode: params[:group][:passcode])
+
+  	group = Group.find_by(passcode: params[:group][:passcode].downcase)
     if group
     	if !current_user.group.include?(group)
     	current_user.group<<group

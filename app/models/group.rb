@@ -20,6 +20,12 @@ class Group < ActiveRecord::Base
 		end
 	end
 
+	def generate_passcode
+		begin 
+      		self.passcode=  6.times.map { [*'0'..'9', *'a'..'z', *'A'..'Z'].sample.downcase }.join
+    	end while Group.exists?(:passcode => self.passcode)
+	end
+
 	def members
       user_ids = "SELECT user_id FROM memberships WHERE group_id = :group_id"
       User.where("id IN (#{user_ids})", group_id: id)

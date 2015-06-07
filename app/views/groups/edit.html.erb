@@ -52,6 +52,8 @@
               <% @members.each do |member| %>
               <%= render member %>
 
+              <%= time_ago_in_words(member.updated_at) %>
+
 
               <%= form_for(member.membership.find_by(group_id: @group.id),
                        html: { method: :delete }, remote: true) do |f| %>
