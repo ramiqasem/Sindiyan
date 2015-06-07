@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
       
       @group = Group.new
       @event = Event.new
-      
+      @membership=Membership.new
       @groups=current_user.group
       
       #@microposts = @groups.map(&:micropost).paginate(page: params[:page], :per_page => 5)

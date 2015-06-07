@@ -1,0 +1,15 @@
+<h3>Join a Group</h3>
+
+<div class="row">
+	<p>Enter group code</p>
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @group, :url => join_group_path do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :passcode %>
+      <%= f.text_field :passcode, class: 'form-control' %>
+
+      <%= f.submit "Join Group", class: "btn btn-primary btn-block" %>
+
+     <% end %>
+  </div>

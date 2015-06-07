@@ -1,23 +1,114 @@
 <% provide(:title, 'Edit Group') %>
 
+<div class="col-md-8 col-md-push-3 col-sm-8">
+      <div class="panel panel-default" id="post-form">
+
+        <div class="panel-heading">
+
+        <h4>Edit Group</h4>
+
+      </div>
+
+   <div class="panel-body">
+
+        <ul class="nav nav-tabs">
+            <li class="active" data-toggle="tooltip" title="mashi a Message!"><a data-toggle="tab" href="#tab-4"><i class="fa fa-envelope fa-lg"></i><span class="hidden-xs">Group Info</span></a></li>
+            
+            <li class="" data-toggle="tooltip" title="Share Event!"><a data-toggle="tab" href="#tab-6"><i class="fa fa-calendar-o fa-lg"></i><span class="hidden-xs">Subscribers</span></a></li>
+        </ul>
+       
+
+        
+        <div class="tab-content" id="form_content" style="background-color: #fff;">
+
+          <div id="tab-4" class="tab-pane active">
+
+            
+
+       
+
+          
+              <%= form_for(@group) do |f| %>
+                <%= render 'shared/error_messages', object: f.object %>
+
+                <%= f.label :Group_Name %>
+                <%= f.text_field :name, class: 'form-control' %>
+
+                <%= f.label :Descreption %>
+                <%= f.email_field :description, class: 'form-control' %>
+
+                <label id="passcode"> <%= @group.passcode %> </label>
+
+                <%= link_to "Generate New", new_passcode_path(:id => @group.id) %>
+                
+                <%= f.submit "Update Group", class: "btn btn-primary btn-block" %>
+
+               <% end %>
+          
+          </div>
+
+          <div id="tab-6" class="tab-pane">
+            <h3>Group Subscribers<h3>
+              <% @members.each do |member| %>
+              <%= render member %>
+
+
+              <%= form_for(member.membership.find_by(group_id: @group.id),
+                       html: { method: :delete }, remote: true) do |f| %>
+                      <%= f.submit "Remove from group", class: "btn", data: {confirm: "Are you sure?"}, :style=>"color:#000;" %>
+              <% end %>
+
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+            
+            
+            <div id="tab-4" class="tab-pane active">
+                
+                
+
+
+
+                
+
+        
+    </div>
+    </div> 
+
+
+
+
+
+
+
+
+
+
+    <!--/end left column-->
+    <!--mid column-->
+  
+    </div>
+  
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
 <%= cloudinary_js_config %>
 
-<h1>Edit Group</h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@group) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-
-      <%= f.label :Group_Name %>
-      <%= f.text_field :name, class: 'form-control' %>
-
-      <%= f.label :Descreption %>
-      <%= f.email_field :description, class: 'form-control' %>
-
-      
-      <%= f.submit "Update Group", class: "btn btn-primary btn-block" %>
-
-     <% end %>
-  </div>
-</div>

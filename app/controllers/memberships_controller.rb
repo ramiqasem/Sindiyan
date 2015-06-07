@@ -4,7 +4,7 @@ class MembershipsController < ApplicationController
   end
 
   def create
-  	group = Group.find_by(passcode: params[:passcode])
+  	group = Group.find_by(passcode: params[:group][:passcode])
     if group
     	if !current_user.group.include?(group)
     	current_user.group<<group
@@ -21,7 +21,10 @@ class MembershipsController < ApplicationController
     redirect_to root_path
   end
 
-  def delete
+  def destroy
+    Membership.find(params[:id]).destroy
+    flash[:success] = "User Removed"
+    redirect_to :back
   end
 
   def index

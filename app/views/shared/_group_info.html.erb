@@ -38,13 +38,13 @@
         <tr>
           <td><b>Subscribers</b></td>
           <td> 
-            <% count = group.capacity %>
+            <% count = group.membership.count %>
             <% if count = 1 %>
             <% count_text = 'Only You' %>
             <% else %>
-            <% count_text = group.capacity.to_s %>
+            <% count_text = group.membership.count.to_s %>
             <% end %>
-            <div class="pull-right"><a href="#" title="see all subscribers"><span class="glyphicon glyphicon-user" style="display: inline-block;">&nbsp;<%= group.capacity.to_s%></a></span></div>
+            <div class="pull-right"><a href="#" title="see all subscribers"><span class="glyphicon glyphicon-user" style="display: inline-block;">&nbsp;<%= group.membership.count.to_s%></a></span></div>
           </td>
         </tr>
         

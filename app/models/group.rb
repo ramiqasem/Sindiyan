@@ -20,6 +20,11 @@ class Group < ActiveRecord::Base
 		end
 	end
 
+	def members
+      user_ids = "SELECT user_id FROM memberships WHERE group_id = :group_id"
+      User.where("id IN (#{user_ids})", group_id: id)
+    end
+
 
  
 

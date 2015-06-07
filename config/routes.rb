@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get     'join'    => 'memberships#new'
   get     'test'    => 'static_pages#test'
   get     'reset_group' => 'users#reset_group'
+  get     'new_passcode' => 'groups#new_passcode'
 
 
   resources :users do
@@ -43,6 +44,7 @@ Rails.application.routes.draw do
   resources :memberships
 
   match "/microposts/add_new_comment" => "microposts#add_new_comment", :as => "add_new_comment_to_microposts", :via => [:post]
+  match "/memberships/create" => "memberships#create", :as => "join_group", :via => [:post]
   
 
 end

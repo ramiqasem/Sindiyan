@@ -1,0 +1,7 @@
+<% @group do |group| %>
+<% tab = (group.id.to_s) %>
+
+$('#<%=tab%>').prepend('<%= escape_javascript(render @event)%>').fadeIn(500).effect( "highlight", {color:"#42AD9D"}, 1000 );;
+//alert ('<%=tab%>');
+$('#form_content input').text("");
+<%end%>

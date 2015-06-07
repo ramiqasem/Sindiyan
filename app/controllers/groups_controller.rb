@@ -25,13 +25,47 @@ class GroupsController < ApplicationController
   end
 
   def join
-    
+    group = Group.find_by(passcode: params[:passcode])
+    if group
+      if !current_user.group.include?(group)
+      current_user.group<<group
+      group.capacity +=1
+      group.save
+      flash[:success] = "You have joined #{group.name}"
+      
+      else
+      flash[:danger] = "You are already following this group"
+      end
+    else
+      flash[:danger] = "Incorrect Group Code"
+    end
+    redirect_to root_path
     
   end
 
   def edit
     @group=Group.find(params[:id])
+    @members= @group.members
+
   end
+
+  def new_passcode
+    @group=Group.find(params[:id])
+    @group.passcode=  6.times.map { [*'0'..'9', *'a'..'z', *'A'..'Z'].sample }.join
+    if @group.save
+      flash[:success] = "Passcode Changed"
+    else
+      flash[:failure] = "Something wrong happened, passcode was not changed!"
+    end
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.js { render layout: false, content_type: 'text/javascript' }
+    end
+  end
+
+
+
+  
 
   def update
     @group=Group.find(params[:id])
