@@ -24,7 +24,7 @@ $brand-border: 0.1px solid rgba(0, 0, 0, 0.09);
 $brand-shadow: 0 3px 3px rgba(0, 0, 0, 0.09);
 
     
-.video youtube {
+.video-container {
     position:relative;
     padding-bottom:56.25%;
     padding-top:30px;
@@ -32,7 +32,7 @@ $brand-shadow: 0 3px 3px rgba(0, 0, 0, 0.09);
     overflow:hidden;
 }
 
-.video youtube iframe, .video youtube object, .video youtube embed {
+.video-container iframe, .video-container object, .video-container embed {
     position:absolute;
     top:0;
     left:0;
@@ -561,7 +561,6 @@ div.img a:hover img {
     padding: 25px 20px 25px 20px;
     border-radius: 0;
     border-width: 0;
-    border: $brand-border;
     -webkit-box-shadow: brand-shadow;
     box-shadow: brand-shadow;
 }
@@ -576,7 +575,6 @@ div.img a:hover img {
     padding: 0 18px 0px 18px;
     border-radius: 0;
     border-width: 0;
-    border: $brand-border;
     -webkit-box-shadow: brand-shadow;
     box-shadow: brand-shadow;
 }
@@ -675,3 +673,4 @@ input#fileupload {
 .chosen-container {
     width: 100% !important;   
 }
+
