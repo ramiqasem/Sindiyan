@@ -64,7 +64,7 @@
          <div class="tab-content" id="tabs">
           <% @groups.each_with_index do |group, index| %>
 
-          <div class="tab-pane fade <%= 'in active' if current_user.group.first == group %>" id="<%=(group.id.to_s)%>">
+          <div class="tab-pane fade" id="<%=(group.id.to_s)%>">
 
 
             <% @microposts= group.micropost.paginate(page: params[:page], per_page: 5) %>
@@ -84,7 +84,7 @@
 
          </div>
          <%end %>
-         <div class="tab-pane fade" id="feed">
+         <div class="tab-pane fade in active" id="feed">
           <div class="panel panel-default">
               <div class="row">
 
