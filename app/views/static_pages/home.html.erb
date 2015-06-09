@@ -62,6 +62,26 @@
 
         <div class="panel-body">
          <div class="tab-content" id="tabs">
+
+          <div class="tab-pane fade in active" id="feed">
+          <div class="panel panel-default">
+              <div class="row">
+
+          
+          <%= render @feed %>
+          </div>
+          <div id="scroll">
+
+               <%= will_paginate @feed %> 
+
+             
+              <button id="show_more" type="button" class="btn btn-default">show more</button>
+             </div>
+         </div>
+       
+
+   </div>
+   
           <% @groups.each_with_index do |group, index| %>
 
           <div class="tab-pane fade" id="<%=(group.id.to_s)%>">
@@ -84,24 +104,7 @@
 
          </div>
          <%end %>
-         <div class="tab-pane fade in active" id="feed">
-          <div class="panel panel-default">
-              <div class="row">
-
-          
-          <%= render @feed %>
-          </div>
-          <div id="scroll">
-
-               <%= will_paginate @feed %> 
-
-             
-              <button id="show_more" type="button" class="btn btn-default">show more</button>
-             </div>
-         </div>
-       
-
-   </div>
+         
  
 </div>
 </div>
