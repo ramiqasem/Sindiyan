@@ -23,7 +23,7 @@
 
 
 //=require forms.js
-
+//= require jquery.autosize
 
 
 

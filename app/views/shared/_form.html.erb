@@ -1,6 +1,6 @@
   <div id="form_tabs">
         <ul class="nav nav-tabs">
-            <li class="active" data-toggle="tooltip" title="mashi a Message!"><a data-toggle="tab" href="#tab-4"><i class="fa fa-envelope fa-lg"></i><span class="hidden-xs">Message</span></a></li>
+            <li class="active" data-toggle="tooltip" title="Send Message!"><a data-toggle="tab" href="#tab-4"><i class="fa fa-envelope fa-lg"></i><span class="hidden-xs">Message</span></a></li>
             
             <li class="" data-toggle="tooltip" title="Share Event!"><a data-toggle="tab" href="#tab-6"><i class="fa fa-calendar-o fa-lg"></i><span class="hidden-xs">Events</span></a></li>
         </ul>
@@ -15,8 +15,12 @@
                 <%= form_for @micropost, remote: true, :html => { :multipart => true } do |f| %>
                 <%= render 'shared/error_messages', object: f.object %>
                 <div class="field" >
-                    <%= f.text_field :content, :id=> "post_area", placeholder: "Share a message...", class: "form-control input-md m-b", style: "display: inline-block"%>
-                    <a class="btn" id="attach" onclick="$('#fileupload').click();"><i class="fa fa-paperclip fa-lg"></i></a>
+                    <%= f.text_area :content, :id=> "post_area", placeholder: "Share a message...", class: "form-control input-md m-b", style: "display: inline-block"%>
+                    <a class="btn" id="attach" title="attach files" onclick="$('#fileupload').click();">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-paperclip fa-stack-1x fa-inverse"></i>
+                        </span></a>
                 </div>
                 
                 <div class="form_controls">

@@ -124,11 +124,14 @@
     <div class="panel-heading">My Groups</div>                         
     
       <ul class="nav nav-stacked" id="group_tabs">
-        <% current_user.group.each do |group| %>
+        
 
-
-
-        <li class="<%= "active" if current_user.group.first == group %>" id=  <%=group.id %>><a href="#<%=group.id.to_s%>"  data-toggle="tab" data-target="#<%=group.id.to_s%> , #<%=(group.id.to_s) + "2"%>" >
+        <li class="current in active"><a href="#feed"  data-toggle="tab" data-target="#feed"  >
+            &nbsp; All
+          </a>
+          </li>
+          <% current_user.group.each do |group| %>
+        <li id=  <%=group.id %>><a href="#<%=group.id.to_s%>"  data-toggle="tab" data-target="#<%=group.id.to_s%> , #<%=(group.id.to_s) + "2"%>" >
           
           &nbsp; <%= group.name %>
           
@@ -142,10 +145,7 @@
 
           <% end %>
 
-          <li><a href="#feed"  data-toggle="tab" data-target="#feed" >
-            &nbsp; All
-          </a>
-          </li>
+          
           
           
           
@@ -154,7 +154,7 @@
                                 <span class="fa fa-plus"></span> Add your class
                             </button>
 
-          <button type="button" class="btn btn-primaryo btn-block special_link" data-toggle="modal" data-target="#join_modal">
+          <button type="button" class="btn btn-default btn-info btn-block special_link" data-toggle="modal" data-target="#join_modal">
                                 <span class="fa fa-plus"></span> Join
                             </button>
 

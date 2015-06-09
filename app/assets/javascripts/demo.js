@@ -8,6 +8,7 @@ jQuery.ajaxSetup({
     resizeChosen();
     jQuery(window).on('resize', resizeChosen);
     
+    $('textarea').autosize();  
 
     
 
@@ -27,6 +28,16 @@ jQuery.ajaxSetup({
     });
 
     $('[data-toggle="tooltip"]').tooltip(); 
+    $('#attach').tooltip();
+
+
+    $("#group_tabs li").click(function() {
+
+    $("#group_tabs li").removeClass("current");
+
+    $(this).addClass("current");
+
+    });
 })
 
 
