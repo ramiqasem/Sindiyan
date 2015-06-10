@@ -37,6 +37,8 @@ gem 'rails-file-icons'
 
 gem 'autosize-rails'
 
+gem 'respond-js-rails'
+
 
 # Use sqlite3 as the database for Active Record
 
