@@ -7,39 +7,42 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(micropost_params)
     groups = (params[:group_ids])
-    if @micropost.save
-      if params[:attachment].present?
-        if params[:attachment]['attachment'].present?
-          params[:attachment]['attachment'].each do |a|
-            @attachment = @micropost.attachment.create!(:attachment => a, :micropost_id => @micropost.id, :name => a.original_filename)
-            @attachment.save
-            
+    if groups 
+      if @micropost.save
+        if params[:attachment].present?
+          if params[:attachment]['attachment'].present?
+            params[:attachment]['attachment'].each do |a|
+              @attachment = @micropost.attachment.create!(:attachment => a, :micropost_id => @micropost.id, :name => a.original_filename)
+              @attachment.save
+              
+            end
           end
-        end
-      end 
-      if groups 
-        groups.each do |group_id|
+        end 
 
+        groups.each do |group_id|
           group=Group.find(group_id)
           @micropost.group<<group
           group.increment_new
-          
-          
         end
+        
+        flash[:success] = "Message Sent!"
+
+      else
+        @feed_items = []
+        render 'static_pages/home'
       end
-      
-      
-      flash[:success] = "Message Sent!"
-      
+
+
     else
-      @feed_items = []
-      render 'static_pages/home'
+      flash[:error] = "You must select at least one group"
+
     end
     respond_to do |format|
       format.html {redirect_to root_url}
       format.js { render layout: false, content_type: 'text/javascript' }
     end
   end
+
 
   def destroy
     @micropost.destroy

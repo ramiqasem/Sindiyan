@@ -11,21 +11,26 @@ jQuery.ajaxSetup({
     $('textarea').autosize();  
 
     
+   
+
+    
 
 
-    $("#post").click(function (e, data) {
-      $(this).empty();
-      $('#fileupload').fileupload({
+    $(function () {
+     $('#fileupload').fileupload({
         progressall: function (e, data) {
-        var progress = parseInt(data.loaded / data.total * 100, 10);
-        alert (progress)
-        $('#progress .bar').css(
-            'width',
-            progress + '%'
-        );
-    }
-});
+         $("#post").off('click').on('click', function () {  
+            data.submit();
+         });
+         var progress = parseInt(data.loaded / data.total * 100, 10);
+         $('#progress .bar').css(
+            'width', progress + '%');
+         }
+       });
     });
+
+
+    
 
     $('[data-toggle="tooltip"]').tooltip(); 
     $('#attach').tooltip();

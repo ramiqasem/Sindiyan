@@ -1,84 +1,154 @@
 
       
     
-       <div id="form_tabs">
-        <ul class="nav nav-tabs">
-            <li class="active" data-toggle="tooltip" title="Send a Message!"><a data-toggle="tab" href="#tab-4"><i class="fa fa-envelope fa-lg"></i>Message</a></li>
-            
-            <li class="" data-toggle="tooltip" title="Share Event!"><a data-toggle="tab" href="#tab-6"><i class="fa fa-calendar-o fa-lg"></i>Events</a></li>
-        </ul>
-       
-
-        
-        <div class="tab-content" id="form_content" style="background-color: #fff;">
-            
-            
-            <div id="tab-4" class="tab-pane active">
-                
-                <%= form_for @micropost, remote: true, :html => { :multipart => true } do |f| %>
-                <%= render 'shared/error_messages', object: f.object %>
-                <div class="field" >
-                    <%= f.text_field :content, :id=> "post_area", placeholder: "Share a message...", class: "form-control input-md m-b", style: "display: inline-block"%>
-                    <a class="btn" id="attach" onclick="$('#fileupload').click();"><i class="fa fa-paperclip fa-lg"></i></a>
-                </div>
-                <hr>
-                <div class="form_controls">
-                    <%= f.fields_for :attachment do |ff| %>
-
-                    <%= ff.file_field :attachment, id: "fileupload", :multiple => true, name: "attachment[attachment][]", :use_filename => true, :unique_filename => false %> <br>
-                    <%end%>
-                </div>
-
-
-               
-                <div id="files-selected"></div>
-                <%= render 'shared/group_select' %>
-                <!-- Multiselect form -->
-                <%= f.submit "Post", class: "btn btn-primary", id: "post" %>
-                <% end %>
-
-
-
-                
-<div id="status"></div>
+      <h2><%= t('photos.title') %></h2>
+<%= form_for User.new, :html => { :multipart => true, :id => "fileupload"  } do |f| %>
+        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+        <div class="row fileupload-buttonbar">
+            <div class="span7">
+                <!-- The fileinput-button span is used to style the file input field as button -->
+                <span class="btn btn-success fileinput-button">
+                    <i class="icon-plus icon-white"></i>
+                    <span>Add files...</span>
+                    <%= f.file_field :avatar %>
+                </span>
+                <button type="submit" class="btn btn-primary start">
+                    <i class="icon-upload icon-white"></i>
+                    <span>Start upload</span>
+                </button>
+                <button type="reset" class="btn btn-warning cancel">
+                    <i class="icon-ban-circle icon-white"></i>
+                    <span>Cancel upload</span>
+                </button>
+                <button type="button" class="btn btn-danger delete">
+                    <i class="icon-trash icon-white"></i>
+                    <span>Delete</span>
+                </button>
+                <input type="checkbox" class="toggle">
             </div>
-            
-            <div id="tab-6" class="tab-pane">
-                <strong>Event</strong>
-
-                <a class="btn" id="attach" onclick="$('#fileupload').click();"><i class="fa fa-calendar-o fa-lg" id="upload_icon"></i></a>
-                <i class="fa fa-attachment" id="upload_icon"></i>
-                 
-                <a href="your link here"> <i class="fa fa-dribbble fa-4x"></i></a>
-
-                <%= render 'events/form' %>
+            <div class="span5">
+                <!-- The global progress bar -->
+                <div class="progress progress-success progress-striped active fade">
+                    <div class="bar" style="width:50%;"></div>
+                </div>
             </div>
-        
-    </div>
-    </div> 
-
-
-
-
+        </div>
+        <!-- The loading indicator is shown during image processing -->
+        <div class="fileupload-loading"></div>
+        <br>
+        <!-- The table listing the files available for upload/download -->
+        <table class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody>
+        </table>
+    <% end %>
 <script>
+  var fileUploadErrors = {
+    maxFileSize: 'File is too big',
+    minFileSize: 'File is too small',
+    acceptFileTypes: 'Filetype not allowed',
+    maxNumberOfFiles: 'Max number of files exceeded',
+    uploadedBytes: 'Uploaded bytes exceed file size',
+    emptyResult: 'Empty file upload result'
+  };
+</script>
 
-$('#fileupload').change(function() {
-                    $('#photoCover').val($(this).text());
-                    $('#files-selected').text(this.files.length + " file selected");
-                });
+<!-- The template to display files available for upload -->
+<script id="template-upload" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td class="preview"><span class="fade"></span></td>
+        <td class="name"><span>{%=file.name%}</span></td>
+        <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
+        {% if (file.error) { %}
+            <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
+        {% } else if (o.files.valid && !i) { %}
+            <td>
+                <div class="progress progress-success progress-striped active"><div class="bar" style="width:0%;"></div></div>
+            </td>
+            <td class="start">{% if (!o.options.autoUpload) { %}
+                <button class="btn btn-primary">
+                    <i class="icon-upload icon-white"></i>
+                    <span>{%=locale.fileupload.start%}</span>
+                </button>
+            {% } %}</td>
+        {% } else { %}
+            <td colspan="2"></td>
+        {% } %}
+        <td class="cancel">{% if (!i) { %}
+            <button class="btn btn-warning">
+                <i class="icon-ban-circle icon-white"></i>
+                <span>{%=locale.fileupload.cancel%}</span>
+            </button>
+        {% } %}</td>
+    </tr>
+{% } %}
+</script>
+<!-- The template to display files available for download -->
+<script id="template-download" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+        {% if (file.error) { %}
+            <td></td>
+            <td class="name"><span>{%=file.name%}</span></td>
+            <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
+            <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
+        {% } else { %}
+            <td class="preview">{% if (file.thumbnail_url) { %}
+                <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}"><img src="{%=file.thumbnail_url%}"></a>
+            {% } %}</td>
+            <td class="name">
+                <a href="{%=file.url%}" title="{%=file.name%}" rel="{%=file.thumbnail_url&&'gallery'%}" download="{%=file.name%}">{%=file.name%}</a>
+            </td>
+            <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
+            <td colspan="2"></td>
+        {% } %}
+        <td class="delete">
+            <button class="btn btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
+                <i class="icon-trash icon-white"></i>
+                <span>{%=locale.fileupload.destroy%}</span>
+            </button>
+            <input type="checkbox" name="delete" value="1">
+        </td>
+    </tr>
+{% } %}
+</script>
 
-$("#form_tabs").tabs({
-    
-     
-         
-    activate: function(event, ui){
-        $('.chosen-select', this).chosen('destroy').chosen();
-       
-        return false;
+
+
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+
+<!-- The Templates and Load Image plugins are included for the FileUpload user interface -->
+<script src="https://blueimp.github.com/JavaScript-Templates/tmpl.min.js"></script>
+<script src="https://blueimp.github.com/JavaScript-Load-Image/load-image.all.min.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+
+<!-- add include_tag js files to config.assets.precompile in ...environments/production.rb if you have it in vendor/ assets -->
+
+<script type="text/javascript" charset="utf-8">
+    $(function () {
+        // Initialize the jQuery File Upload widget:
+        $('#fileupload').fileupload();
+        // 
+        // Load existing files:
+        $.getJSON($('#fileupload').prop('action'), function (files) {
+          var fu = $('#fileupload').data('blueimp-fileupload'), 
+            template;
+          fu._adjustMaxNumberOfFiles(-files.length);
+          template = fu._renderDownload(files)
+            .appendTo($('#fileupload .files'));
+          // Force reflow:
+          fu._reflow = fu._transition && template.length &&
+            template[0].offsetWidth;
+          template.addClass('in');
+          $('#loading').remove();
+        });
+
+        progressall: function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        $('#progress .bar').css(
+            'width',
+            progress + '%'
+        );
     }
 
-   
-
-});
-
+    });
 </script>
