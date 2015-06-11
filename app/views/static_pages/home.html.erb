@@ -307,6 +307,7 @@
   {
     var group = $(this).attr('id')
     $.ajax("/reset_group?group_id=" + group)
+    $('.row-offcanvas').toggleClass('active')
   });
 
 
