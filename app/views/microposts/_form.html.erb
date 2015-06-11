@@ -1,0 +1,31 @@
+<%= form_for @micropost, remote: true, :html => { :multipart => true } do |f| %>
+                <%= render 'shared/error_messages', object: f.object %>
+<div id="micropost_content">
+                <div class="field clearfix" >
+                    <%= f.text_area :content, :id=> "post_area", placeholder: "Share a message...", class: "form-control input-md m-b", style: "display: inline-block"%>
+                    <a class="btn" id="attach" title="Attach files" onclick="$('#fileupload').click();"><i class="fa fa-paperclip fa-lg"></i></a>
+                </div>
+                
+                <div class="field">
+                    <%= f.fields_for :attachment do |ff| %>
+
+                    <%= ff.file_field :attachment, id: "fileupload", :multiple => true, name: "attachment[attachment][]", :use_filename => true, :unique_filename => false %> <br>
+                    <%end%>
+                    
+    </div>
+               
+
+
+               
+                <div class="field" id="files-selected"></div>
+    <div class="field">
+                <%= render 'shared/group_select' %>
+        </div>
+                <!-- Multiselect form -->
+               <div class="field clearfix">
+                    <%= f.submit "Post", class: "btn btn-primary pull-right", id: "post" %>
+                    </div>
+                    
+    </div>
+                <% end %>   
+

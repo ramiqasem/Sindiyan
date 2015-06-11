@@ -12,49 +12,21 @@
             
             <div id="tab-4" class="tab-pane active">
                 
-                <%= form_for @micropost, remote: true, :html => { :multipart => true } do |f| %>
-                <%= render 'shared/error_messages', object: f.object %>
-                <div class="field" >
-                    <%= f.text_area :content, :id=> "post_area", placeholder: "Share a message...", class: "form-control input-md m-b", style: "display: inline-block"%>
-                    <a class="btn" id="attach" title="attach files" onclick="$('#fileupload').click();"><i class="fa fa-paperclip fa-lg"></i></a>
-                </div>
+                <%= render "microposts/form" %>
                 
-                <div class="form_controls">
-                    <%= f.fields_for :attachment do |ff| %>
 
-                    <%= ff.file_field :attachment, id: "fileupload", :multiple => true, name: "attachment[attachment][]", :use_filename => true, :unique_filename => false %> <br>
-                    <%end%>
-                </div>
-
-                <div id="progress">
-                     <div class="bar" style="width: 0%;"></div>
-                </div>
-
-        <!-- The loading indicator is shown during image processing -->
-        <div class="fileupload-loading"></div>
-        <br>
-        <!-- The table listing the files available for upload/download -->
-        <table class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody>
-        </table>
-               
-                <div id="files-selected"></div>
-                <%= render 'shared/group_select' %>
-                <!-- Multiselect form -->
-                <%= f.submit "Post", class: "btn btn-primary", id: "post" %>
-                <% end %>
-
-
-
+ 
                 
-<div id="status"></div>
+
             </div>
             
             <div id="tab-6" class="tab-pane">
                 <%= render 'events/form' %>
             </div>
-        
+        </div>
     </div>
-    </div> 
+    
+
 
 
 

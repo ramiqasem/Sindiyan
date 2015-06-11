@@ -13,6 +13,7 @@ $(function(){
 
 	$("button:contains('show more')").click(function(){
 		$(this).parent().find(".pagination a[rel=\'next\']").click();
+		alert ('yes');
 		return false;
 	});
 

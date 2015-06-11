@@ -26699,26 +26699,21 @@ jQuery.ajaxSetup({
     $('textarea').autosize();  
 
     
-   
-
-    
 
 
-    $(function () {
-     $('#fileupload').fileupload({
+    $("#post").click(function (e, data) {
+      $(this).empty();
+      $('#fileupload').fileupload({
         progressall: function (e, data) {
-         $("#post").off('click').on('click', function () {  
-            data.submit();
-         });
-         var progress = parseInt(data.loaded / data.total * 100, 10);
-         $('#progress .bar').css(
-            'width', progress + '%');
-         }
-       });
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        alert (progress)
+        $('#progress .bar').css(
+            'width',
+            progress + '%'
+        );
+    }
+});
     });
-
-
-    
 
     $('[data-toggle="tooltip"]').tooltip(); 
     $('#attach').tooltip();
@@ -26844,6 +26839,7 @@ $(function(){
 
 	$("button:contains('show more')").click(function(){
 		$(this).parent().find(".pagination a[rel=\'next\']").click();
+		alert ('yes');
 		return false;
 	});
 

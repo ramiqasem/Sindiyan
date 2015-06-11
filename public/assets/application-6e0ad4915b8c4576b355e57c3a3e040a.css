@@ -10022,51 +10022,46 @@ header {
 
 /* only apply sticky columns on wider screens */
 @media (min-width: 1200px) {
-  /* line 240, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
-  #sidebar {
-    margin-left: 15px;
-  }
-
-  /* line 244, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 241, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   #content {
     padding-right: 15px;
   }
 
-  /* line 248, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 245, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   #sidebar.affix-top {
     position: static;
   }
 
-  /* line 252, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 249, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   #sidebar.affix {
     position: fixed !important;
     top: 20px;
     width: 200px;
   }
 
-  /* line 258, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 255, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   #midCol.affix-top {
     position: static;
   }
 
-  /* line 262, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 259, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   #midCol.affix-bottom {
     padding-top: 0;
   }
 
-  /* line 266, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 263, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   #midCol.affix {
     position: fixed !important;
     top: 20px;
     width: 292px;
   }
 }
-/* line 274, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 271, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .affix {
   position: static;
 }
 
-/* line 279, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 276, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 body {
   font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
   font-weight: 300;
@@ -10075,88 +10070,88 @@ body {
   margin-top: 70px;
 }
 
-/* line 288, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 285, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 a, a:hover {
   color: #42AD9D;
   text-decoration: none;
 }
 
-/* line 294, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 291, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .highlight-bk {
   background-color: #42AD9D;
   padding: 1px;
   width: 100%;
 }
 
-/* line 301, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 298, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .highlight {
   color: #42AD9D;
 }
 
-/* line 306, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 303, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 h3.highlight {
   padding-top: 13px;
   padding-bottom: 14px;
   border-bottom: 2px solid #42AD9D;
 }
 
-/* line 313, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 310, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .navbar {
   background-color: #42AD9D;
   color: #ffffff;
   border-radius: 0;
 }
 
-/* line 320, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 317, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .navbar-nav > li > a {
   color: #fff;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-/* line 331, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 328, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .navbar-nav li a:hover {
   background-color: #42AD9D;
 }
 
-/* line 336, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 333, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .navbar-nav > .open > a, .navbar-nav > .open > a:hover, .navbar-nav > .open > a:focus {
   color: #000;
   opacity: .9;
 }
 
-/* line 342, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 339, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .navbar-brand {
   color: #fff;
 }
 
-/* line 347, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 344, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .accordion-group {
   border-width: 0;
 }
 
-/* line 352, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 349, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .dropdown-menu {
   min-width: 250px;
 }
 
-/* line 357, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 354, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .caret {
   color: #fff;
 }
 
-/* line 362, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 359, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .navbar-toggle {
   color: #fff;
   border-width: 0;
 }
 
-/* line 368, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 365, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .navbar-toggle:hover {
   background-color: #fff;
 }
 
-/* line 373, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 370, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .panel, .panel-heading {
   border-radius: 0;
   border-width: 0;
@@ -10164,28 +10159,28 @@ h3.highlight {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.09);
 }
 
-/* line 381, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 378, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .thumbnail {
   margin-bottom: 8px;
   border-radius: 0;
 }
 
-/* line 387, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 384, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .well {
   border-radius: 0;
 }
 
-/* line 392, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 389, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .accordion-heading .accordion-toggle, .accordion-inner, .nav-stacked li > a {
   padding-left: 3px;
 }
 
-/* line 397, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 394, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .nav-stacked li:active {
   border: 3px solid #42AD9D !important;
 }
 
-/* line 401, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 398, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 footer {
   height: 50px;
   background-color: #dfdfdf;
@@ -10194,84 +10189,84 @@ footer {
 }
 
 @media (min-width: 992px) {
-  /* line 411, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 408, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   .no-gutter.row > div[class*='col-md'] {
     padding-left: 0;
     padding-right: 0;
   }
 
-  /* line 416, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 413, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   .no-gutter.row > .col-md-12 {
     width: 99.99999999999999%;
     *width: 99.93055555555554%;
   }
 
-  /* line 421, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 418, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   .no-gutter.row .col-md-11 {
     width: 91.66666666666666%;
     *width: 91.59722222222221%;
   }
 
-  /* line 426, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 423, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   .no-gutter.row > .col-md-10 {
     width: 83.33333333333331%;
     *width: 83.26388888888887%;
   }
 
-  /* line 431, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 428, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   .no-gutter.row > .col-md-9 {
     width: 74.99999999999999%;
     *width: 74.93055555555554%;
   }
 
-  /* line 436, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 433, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   .no-gutter.row > .col-md-8 {
     width: 66.66666666666666%;
     *width: 66.59722222222221%;
   }
 
-  /* line 441, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 438, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   .no-gutter.row > .col-md-7 {
     width: 58.33333333333333%;
     *width: 58.263888888888886%;
   }
 
-  /* line 446, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 443, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   .no-gutter.row > .col-md-6 {
     width: 49.99999999999999%;
   }
 
-  /* line 450, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 447, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   .no-gutter.row > .col-md-4 {
     width: 33.33333333333333%;
   }
 
-  /* line 454, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 451, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   .no-gutter.row > .col-md-3 {
     width: 24.999999999999996%;
     *width: 24.930555555555554%;
   }
 
-  /* line 459, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 456, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   .no-gutter.row > .col-md-2 {
     width: 16.666666666666664%;
     *width: 16.59722222222222%;
   }
 
-  /* line 464, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  /* line 461, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
   .no-gutter.row > .col-md-1 {
     width: 8.333333333333332%;
     *width: 8.263888888888888%;
   }
 }
 /* end custom theme */
-/* line 473, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 470, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .btn {
   border-radius: 0;
   background-color: #42AD9D;
 }
 
-/* line 484, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 481, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .transparent {
   filter: alpha(opacity=50);
   -moz-opacity: 0.5;
@@ -10279,22 +10274,23 @@ footer {
   opacity: 0.5;
 }
 
-/* line 491, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 488, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 #logo-img {
   margin-top: -5px;
 }
 
-/* line 495, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 492, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .nav-stacked > li {
   height: 3em;
 }
 
-/* line 501, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 498, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .table {
   font-size: 12px;
+  margin-bottom: 0;
 }
 
-/* line 506, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 503, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .tools {
   display: inline-block;
   float: right;
@@ -10303,22 +10299,22 @@ footer {
   padding: 0;
 }
 
-/* line 514, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 511, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
   border-top: none;
 }
 
-/* line 518, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 515, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 b {
   color: #a2a09a;
 }
 
-/* line 522, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 519, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 #class-info {
   padding: 5px;
 }
 
-/* line 526, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 523, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 div.img {
   margin: 2px;
   padding: 2px;
@@ -10329,31 +10325,31 @@ div.img {
   text-align: center;
 }
 
-/* line 536, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 533, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 div.img img {
   display: inline;
   margin: 2px;
   border: 1px solid #ffffff;
 }
 
-/* line 542, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 539, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 div.img a:hover img {
   border: 1px solid #42AD9D;
 }
 
-/* line 546, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 543, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .bar {
   height: 18px;
   background: #42AD9D;
   border: 1px solid #42AD9D;
 }
 
-/* line 552, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
-.panel-body {
-  padding: 15px 15px 0 15px;
+/* line 549, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+#post-form .panel-body {
+  padding: 0;
 }
 
-/* line 556, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 553, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 #post-form {
   margin-bottom: 20px;
   color: #555555;
@@ -10362,24 +10358,26 @@ div.img a:hover img {
   cursor: default;
 }
 
-/* line 566, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 563, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 #form_content {
-  padding: 25px 20px 25px 20px;
+  padding: 15px 25px 15px 25px;
   border-radius: 0;
   border-width: 0;
   -webkit-box-shadow: brand-shadow;
   box-shadow: brand-shadow;
 }
 
-/* line 573, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 571, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 #form_content .form-control {
   width: 100%;
   height: 43px;
   resize: none;
   border-radius: 0;
+  font-size: 12px;
+  padding-right: 50px;
 }
 
-/* line 581, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 580, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 #event-content {
   padding: 0 18px 0px 18px;
   border-radius: 0;
@@ -10388,26 +10386,26 @@ div.img a:hover img {
   box-shadow: brand-shadow;
 }
 
-/* line 589, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 588, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 #form_tabs .fa-lg {
   padding-right: 10px;
   padding-left: 10px;
 }
 
-/* line 596, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 595, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .form-control:focus {
   border: 1px solid #42AD9D;
 }
 
-/* line 600, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 599, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .field {
   position: relative;
 }
 
-/* line 605, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 604, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 a#attach {
   position: absolute;
-  bottom: 2px;
+  bottom: 10px;
   right: 0px;
   margin: 3px 1px;
   background-color: white;
@@ -10415,17 +10413,17 @@ a#attach {
   width: 50px;
 }
 
-/* line 615, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 614, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 input#fileupload {
   display: none;
 }
 
-/* line 621, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 620, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .pagination ul {
   display: none;
 }
 
-/* line 625, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 624, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 #event-list {
   padding-left: 20px;
   padding-top: 0;
@@ -10433,33 +10431,33 @@ input#fileupload {
   padding-right: 20px;
 }
 
-/* line 632, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 631, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .nav > li > a {
   word-wrap: break-word;
 }
 
-/* line 637, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 636, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open > .btn-info.dropdown-toggle {
   color: #fff;
   background-color: #60c1b2;
   border-color: #42AD9D;
 }
 
-/* line 644, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 643, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
   color: #fff;
   background-color: #60c1b2;
   border-color: #42AD9D;
 }
 
-/* line 650, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 649, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
   color: #fff;
   background-color: #60c1b2;
   border-color: #42AD9D;
 }
 
-/* line 657, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 656, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 #attach .btn {
   visibility: hidden;
   border: none;
@@ -10468,31 +10466,32 @@ input#fileupload {
   height: 25px;
 }
 
-/* line 665, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 664, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .btn-primary {
   border-color: #42AD9D;
 }
 
-/* line 670, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 669, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 #events-table td {
   max-width: 50px;
   overflow: hidden;
   word-wrap: break-word;
 }
 
-/* line 676, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 675, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .input-group-addon {
   font-size: 12px;
 }
 
-/* line 680, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 679, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 #chosen-div {
   width: 100% !important;
 }
 
-/* line 684, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+/* line 683, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
 .chosen-container {
   width: 100% !important;
+  font-size: 12px !important;
 }
 
 /* line 688, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
@@ -10511,16 +10510,93 @@ input#fileupload {
 }
 
 /* line 700, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
-li.current {
+#post-form li.current {
   background-color: #efefef;
   border-color: #42AD9D;
 }
 
-/* line 706, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
-.bar {
-  height: 18px;
-  background: green;
+/* line 705, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+#post-form .nav-tabs > li {
+  border-right: 1px solid #ddd;
 }
+
+/* line 710, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+#post-form .nav-tabs > li > a {
+  margin-right: 0;
+}
+
+/* line 714, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+#post-form .nav-tabs > li.active > a {
+  border: none;
+  border-bottom: 2px solid #fff;
+}
+
+/* line 720, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+#post-form .nav-tabs {
+  background-color: #f8f8f8;
+}
+
+/* line 724, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* MY GROUPS */
+@media screen and (max-width: 767px) {
+  /* line 733, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    transition: all .25s ease-out;
+  }
+
+  /* line 740, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  /* line 744, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  /* line 748, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%;
+    /* 6 columns */
+  }
+
+  /* line 753, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -50%;
+    /* 6 columns */
+  }
+
+  /* line 758, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  .row-offcanvas-right.active {
+    right: 50%;
+    /* 6 columns */
+  }
+
+  /* line 762, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  .row-offcanvas-left.active {
+    left: 50%;
+    /* 6 columns */
+  }
+
+  /* line 766, C:/Sites/Sindiyan Heroku/app/assets/stylesheets/style.scss */
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    /* 6 columns */
+  }
+}
+/* END MY GROUPS */
 /*!
  * Datepicker for Bootstrap
  *

@@ -237,10 +237,7 @@ header
 
 @media (min-width: 1200px)
 {
-    #sidebar
-    {
-        margin-left: 15px;
-    }
+    
     #content
     {
         padding-right: 15px;
@@ -500,7 +497,7 @@ footer
 
 .table {
     font-size: 12px;
-   
+   margin-bottom: 0;
 }
  
 .tools {
@@ -549,8 +546,8 @@ div.img a:hover img {
     border:1px solid $brand-color;
 }
 
-.panel-body {
-  padding: 15px 15px 0 15px;
+#post-form .panel-body {
+  padding: 0;
 }
 
 #post-form {
@@ -564,19 +561,21 @@ div.img a:hover img {
 
 
 #form_content {
-    padding: 25px 20px 25px 20px;
+    padding: 15px 25px 15px 25px;
     border-radius: 0;
     border-width: 0;
     -webkit-box-shadow: brand-shadow;
     box-shadow: brand-shadow;
-}
-#form_content .form-control {
+    }
 
+#form_content .form-control {
   width: 100%;
   height: 43px;
   resize: none;
   border-radius: 0;
-}
+    font-size: 12px;
+    padding-right: 50px;
+        }
 
 #event-content {
     padding: 0 18px 0px 18px;
@@ -604,7 +603,7 @@ padding-left: 10px;
 
 a#attach {
     position: absolute;
-    bottom: 2px;
+    bottom: 10px;
     right: 0px;
     margin: 3px 1px;
     background-color: white;
@@ -683,6 +682,7 @@ input#fileupload {
 
 .chosen-container {
     width: 100% !important;   
+    font-size: 12px !important;
 }
 
 .modal-dialog {
@@ -697,13 +697,77 @@ input#fileupload {
   padding: 15px 50px 20px 50px;
 }
 
-li.current {
+#post-form li.current {
     background-color: #efefef;
     border-color: $brand-color; 
-
 }
 
-.bar {
-    height: 18px;
-    background: green;
+#post-form .nav-tabs > li {
+    border-right: 1px solid #ddd; 
+        
 }
+
+#post-form .nav-tabs > li > a {
+    margin-right: 0;
+}
+
+#post-form .nav-tabs > li.active > a {
+  border: none;
+  border-bottom: 2px solid #fff; 
+    
+}
+
+#post-form .nav-tabs {
+  background-color: #f8f8f8;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  }
+
+
+/* MY GROUPS */
+
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+  }
+}
+
+/* END MY GROUPS */

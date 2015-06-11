@@ -8,12 +8,71 @@
 <!-- /.navbar -->
 <!-- Begin Body -->
 <div class="container" id="main">
-  <div class="row">
+  <div class="row row-offcanvas row-offcanvas-left">
 
+<!-- Group Tabs -->
 
+ <div class="col-md-3 col-sm-3 sidebar-offcanvas" id="sidebar">
+  <div class="panel" id="left-panel">
+    <div class="panel-heading">My Groups</div>                         
+    
+      <ul class="nav nav-stacked" id="group_tabs">
+        
+
+        <li class="current in active"><a href="#feed"  data-toggle="tab" data-target="#feed"  >
+            &nbsp; All
+          </a>
+          </li>
+          <% current_user.group.each do |group| %>
+        <li id=  <%=group.id %>><a href="#<%=group.id.to_s%>"  data-toggle="tab" data-target="#<%=group.id.to_s%> , #<%=(group.id.to_s) + "2"%>" >
+          
+          &nbsp; <%= group.name %>
+          
+          <% if current_user.membership.find_by(group_id: group.id).new_count > 0 %> 
+          <span class=badge id=badge<%=group.id%>><%= current_user.membership.find_by(group_id: group.id).new_count %>
+          </span>
+          <% end %>
+          
+          </a>
+          </li>
+
+          <% end %>
+
+          
+          
+          
+          
+
+          <button type="button" class="btn btn-default btn-info btn-block special_link" data-toggle="modal" data-target="#myModal">
+                                <span class="fa fa-plus"></span> Add your class
+                            </button>
+
+          <button type="button" class="btn btn-default btn-info btn-block special_link" data-toggle="modal" data-target="#join_modal">
+                                <span class="fa fa-plus"></span> Join
+                            </button>
+
+        </ul>
+       
+        <!--/acc-->
+       
+        
+      </div>
+      
+    
+    <!--/panel-->
+  </div>
+
+  <!-- End of Group Tabs -->
+      
+      
     <!--/end left column-->
     <!--mid column-->
-    <div class="col-md-6 col-md-push-3 col-sm-6">
+    <div class="col-md-6 col-sm-6">
+        
+        <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+        
       <div class="panel panel-default" id="post-form">
 
         
@@ -120,72 +179,20 @@
 
 
 
-<!-- Group Tabs -->
 
- <div class="col-md-3 col-md-pull-6 col-sm-6">
-  <div class="panel" id="left-panel">
-    <div class="panel-heading">My Groups</div>                         
-    
-      <ul class="nav nav-stacked" id="group_tabs">
-        
-
-        <li class="current in active"><a href="#feed"  data-toggle="tab" data-target="#feed"  >
-            &nbsp; All
-          </a>
-          </li>
-          <% current_user.group.each do |group| %>
-        <li id=  <%=group.id %>><a href="#<%=group.id.to_s%>"  data-toggle="tab" data-target="#<%=group.id.to_s%> , #<%=(group.id.to_s) + "2"%>" >
-          
-          &nbsp; <%= group.name %>
-          
-          <% if current_user.membership.find_by(group_id: group.id).new_count > 0 %> 
-          <span class=badge id=badge<%=group.id%>><%= current_user.membership.find_by(group_id: group.id).new_count %>
-          </span>
-          <% end %>
-          
-          </a>
-          </li>
-
-          <% end %>
-
-          
-          
-          
-          
-
-          <button type="button" class="btn btn-default btn-info btn-block special_link" data-toggle="modal" data-target="#myModal">
-                                <span class="fa fa-plus"></span> Add your class
-                            </button>
-
-          <button type="button" class="btn btn-default btn-info btn-block special_link" data-toggle="modal" data-target="#join_modal">
-                                <span class="fa fa-plus"></span> Join
-                            </button>
-
-        </ul>
-       
-        <!--/acc-->
-       
-        
-      </div>
-      
-    
-    <!--/panel-->
-  </div>
-
-  <!-- End of Group Tabs -->
 
 
 
     <!-- Group info -->
 
   
-  <div class="col-md-3 col-sm-6 hidden-xs" id="content">
+  <div class="col-md-3 col-sm-3 hidden-xs">
     
  
  
  
  
-        <div class="tab-content">
+        <div class="tab-content" id="content">
  
           <% @groups.each do |group| %>  
  
@@ -307,6 +314,14 @@
   
 
   </script>
+    
+      <script>
+      $(document).ready(function () {
+  $('[data-toggle="offcanvas"]').click(function () {
+    $('.row-offcanvas').toggleClass('active')
+  });
+});
+      </script>
 
 
   <% else %>
