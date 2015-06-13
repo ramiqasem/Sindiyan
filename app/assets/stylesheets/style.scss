@@ -391,9 +391,7 @@ h3.highlight
     padding-left: 3px;
 }
 
-.nav-stacked li:active {
-    border: 3px solid $brand-color !important;
-}
+
 
 footer
 {
@@ -771,3 +769,15 @@ hr {
 }
 
 /* END MY GROUPS */
+
+/* Style active group tab */
+
+li.current {
+    background-color: #efefef;
+    border-color: $brand-color; 
+
+}
+
+.nav-stacked li:active {
+    background-color: $brand-color;
+}

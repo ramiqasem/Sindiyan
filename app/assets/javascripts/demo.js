@@ -8,7 +8,7 @@ jQuery.ajaxSetup({
     resizeChosen();
     jQuery(window).on('resize', resizeChosen);
     
-    $('textarea').autosize();  
+    $('textarea').autosize();
 
     
 
@@ -16,18 +16,11 @@ jQuery.ajaxSetup({
     $("#post").click(function (e, data) {
       $(this).empty();
       $('#fileupload').fileupload({
-        progressall: function (e, data) {
-        var progress = parseInt(data.loaded / data.total * 100, 10);
-        alert (progress)
-        $('#progress .bar').css(
-            'width',
-            progress + '%'
-        );
-    }
-});
+        autoUpload: false
+      });
     });
 
-    $('[data-toggle="tooltip"]').tooltip(); 
+    $('[data-toggle="tooltip"]').tooltip();
     $('#attach').tooltip();
 
 
@@ -38,9 +31,20 @@ jQuery.ajaxSetup({
     $(this).addClass("current");
 
     });
+
+    $("#cancel_post").click(function() {
+      resetFormElement($('#fileupload'));
+      $("#post_area").val('');
+      $('#files-selected').text("");
+      $('#fileupload').value = $('#fileupload').defaultValue;
+    });
 })
 
-
+function resetFormElement(e) {
+  alert ('reset');
+        e.wrap('<form>').closest('form').get(0).reset();
+        e.unwrap();
+      }
 
 function resizeChosen() {
    $(".chosen-container").each(function() {

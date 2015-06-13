@@ -21,7 +21,7 @@ class UsersController < ApplicationController
           flash[:info] = "Please check your email to activate your account."
           
           log_in @user
-  		    flash[:success] = "Welcome to the Sample App!"
+  		    flash[:success] = "Welcome to the Sindiyan.. Start by creating a group and connect your class"
   		    redirect_to root_url
   	   else
   		    render 'new'

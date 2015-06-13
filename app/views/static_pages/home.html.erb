@@ -2,7 +2,7 @@
 
 
 <% if logged_in? %>
-<!DOCTYPE html>
+
 
 
 <!-- /.navbar -->
@@ -14,52 +14,34 @@
 
  <div class="col-md-3 col-sm-3 sidebar-offcanvas" id="sidebar">
   <div class="panel" id="left-panel">
-    <div class="panel-heading">My Groups</div>                         
-    
-      <ul class="nav nav-stacked" id="group_tabs">
-        
+    <div class="panel-heading">My Groups
+    </div>                         
+      <ul class="nav nav-stacked" id="group_tabs"> 
 
-        <li class="current in active"><a href="#feed"  data-toggle="tab" data-target="#feed"  >
+        <li class="current active"><a href="#feed"  data-toggle="tab" data-target="#feed" >
             &nbsp; All
           </a>
           </li>
           <% current_user.group.each do |group| %>
-        <li id=  <%=group.id %>><a href="#<%=group.id.to_s%>"  data-toggle="tab" data-target="#<%=group.id.to_s%> , #<%=(group.id.to_s) + "2"%>" >
-          
-          &nbsp; <%= group.name %>
-          
+        <li name=  <%=group.id %>><a href="#"  data-toggle="tab" data-target="#<%=(group.id.to_s)%> , #<%=(group.id.to_s) + "2"%>" >  
+          &nbsp; <%= group.name %> 
           <% if current_user.membership.find_by(group_id: group.id).new_count > 0 %> 
-          <span class=badge id=badge<%=group.id%>><%= current_user.membership.find_by(group_id: group.id).new_count %>
+          <span class="badge" id= "badge<%=group.id%>"> <%= current_user.membership.find_by(group_id: group.id).new_count %>
           </span>
-          <% end %>
-          
+          <% end %>  
           </a>
           </li>
-
           <% end %>
 
-          
-          
-          
-          
 
           <button type="button" class="btn btn-default btn-info btn-block special_link" data-toggle="modal" data-target="#myModal">
-                                <span class="fa fa-plus"></span> Add your class
-                            </button>
-
+            <span class="fa fa-plus"></span> Add your class
+          </button>
           <button type="button" class="btn btn-default btn-info btn-block special_link" data-toggle="modal" data-target="#join_modal">
-                                <span class="fa fa-plus"></span> Join
-                            </button>
-
+          <span class="fa fa-plus"></span> Join
+          </button>
         </ul>
-       
-        <!--/acc-->
-       
-        
       </div>
-      
-    
-    <!--/panel-->
   </div>
 
   <!-- End of Group Tabs -->
@@ -73,94 +55,36 @@
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
           </p>
         
-      <div class="panel panel-default" id="post-form">
-
-        
-
-
-
-
-
-
-
         <!-- el form el 3atheeem -->
-
-
-
-
-
-
-
-
-
-
-
+      <div class="panel panel-default" id="post-form">
         <div class="panel-body">
           <%= render 'shared/form' %>
         </div>
       </div>
 
-
-
-                  <!-- end of form -->
-
-
-
       <!--   Posts   -->
 
-
-
-
-      <div class="panel">
-        <div class="panel-heading">
-          <h4 draggable="true">Microposts</h4>
-
-
-
-        </div>
-
-        <div class="panel-body">
+      <div class="panel" id="micropost-panel">
+       <div class="panel-body">
          <div class="tab-content" id="tabs">
-
           <div class="tab-pane fade in active" id="feed">
-          <div class="panel panel-default">
-              <div class="row">
-
-          
           <%= render @feed %>
-          </div>
           <div id="scroll">
-
-               <%= will_paginate @feed %> 
-
-             
-              <button id="show_more" type="button" class="btn btn-default">show more</button>
-             </div>
-         </div>
-       
-
-   </div>
+               <%= will_paginate @feed %>  
+            <button id="show_more" type="button" class="btn btn-default">show more
+            </button>
+          </div>
+        </div>
    
           <% @groups.each_with_index do |group, index| %>
-
           <div class="tab-pane fade" id="<%=(group.id.to_s)%>">
-
-
             <% @microposts= group.micropost.paginate(page: params[:page], per_page: 5) %>
-
-            <div class="panel panel-default">
-              <div class="row">
-                <%= render @microposts %>
-              </div>
-
+              <%= group.name %>
+              <%= render @microposts %>
               <div id="scroll">
-
                <%= will_paginate @microposts %> 
                <button id="show_more" type="button" class="btn btn-default">show more</button>
-
              </div>
-           </div>
-
          </div>
          <%end %>
          
@@ -169,6 +93,9 @@
 </div>
 </div>
 </div>
+
+
+
 
 
 
@@ -197,7 +124,7 @@
           <% @groups.each do |group| %>  
  
           <div class="tab-pane fade <%= 'in active' if current_user.group.first == group %>" id="<%=(group.id.to_s)%>">
-           
+              
               <% if @owned_groups.include? group %>
               <%= render 'shared/group_info', :group=> group %>
 
@@ -214,7 +141,11 @@
 
 
 
+   </div>
+      
 
+</div>
+</div>
 
 
 
@@ -305,9 +236,9 @@
 
   $("#group_tabs li").click(function(e)
   {
-    var group = $(this).attr('id')
-    $.ajax("/reset_group?group_id=" + group)
-    $('.row-offcanvas').toggleClass('active')
+    var group = $(this).attr('name');
+    $.ajax("/reset_group?group_id=" + group);
+    $('.row-offcanvas').toggleClass('active');
   });
 
 
@@ -327,15 +258,13 @@
 
   <% else %>
   <div class="center jumbotron">
-    <h1>Welcome to the Sample App</h1>
+    <h1>Welcome to Sindiyan</h1>
     <h2>
-      This is the home page for the
-      <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-      sample application.
+      Class communication, easier for everyone
     </h2>
     <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
   </div>
   <%= link_to image_tag("Sindiyan.png", alt: "Rails logo"),
-  'http://rubyonrails.org/'  %>
+  'http://sindiyan.com/'  %>
 
   <% end %>

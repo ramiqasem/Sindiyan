@@ -1,10 +1,35 @@
-$("#post_area").empty();
+$("#post_area").val('');
 <% @micropost.group.each do |group| %>
 <% tab = (group.id.to_s) %>
 
-$('#<%=tab%>').prepend('<%= escape_javascript(render @micropost)%>').fadeIn(500).effect( "highlight", {color:"#42AD9D"}, 1000 );;
-//alert ('<%=tab%>');
+$('#<%=tab%>').prepend('<%= escape_javascript(render @micropost)%>');
+
+var active = $('div[id="tabs"] .tab-pane.active').attr("id");
+
+
+if(<%=tab%> == active) {
+	
+	$('#<%=tab%>').prepend('<%= escape_javascript(render @micropost)%>');
+	$('#<%=tab%>').children(":first").fadeIn(500).effect( "highlight", {color:"#42AD9D"}, 1000 );
+} 
+else {
+	
+	$('#<%=tab%>').prepend('<%= escape_javascript(render @micropost)%>');
+}
+
+if ('#<%=tab%>')
+
 $('#files-selected').text("");
+
 <%end%>
 
 
+if(active == "feed") {
+	
+	$('#feed').prepend('<%= escape_javascript(render @micropost)%>');
+	$('#feed').children(":first").fadeIn(500).effect( "highlight", {color:"#42AD9D"}, 1000 );
+} 
+else {
+	
+	$('#feed').prepend('<%= escape_javascript(render @micropost)%>');
+}
